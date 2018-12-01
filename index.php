@@ -1,1 +1,1 @@
-<?php header( 'Location: /verification.html' ); ?>
+<?php header( 'Location: /index.html' ); ?>
