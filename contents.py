@@ -1,32 +1,32 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route("")
-@app.route("/index.html")
+@app.route("/")
+@app.route("/index")
 def index():
 	return render_template('index.html')
 
-@app.route("/superman.html")
+@app.route("/superman")
 def superman():
     return render_template('superman.html')
 
-@app.route("/home.html")
+@app.route("/home")
 def home():
     return render_template('home.html')
 
-@app.route("/about.html")
+@app.route("/about")
 def about():
     return render_template('about.html')
 
-@app.route("/recipesideas.html")
+@app.route("/recipesideas")
 def recipesideas():
     return render_template('recipesideas.html')
 
-@app.route("/instagramsuggestions.html")
+@app.route("/instagramsuggestions")
 def instagramsuggestions():
     return render_template('instagramsuggestions.html')
 
-@app.route("/contact.html")
+@app.route("/contact")
 def contact():
     return render_template('contact.html')
 
