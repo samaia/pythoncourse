@@ -1,32 +1,32 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route("https://immense-ridge-70695.herokuapp.com/")
-@app.route("https://immense-ridge-70695.herokuapp.com/index.html")
+@app.route("")
+@app.route("/index.html")
 def index():
 	return render_template('index.html')
 
-@app.route("https://immense-ridge-70695.herokuapp.com/superman.html")
+@app.route("/superman.html")
 def superman():
     return render_template('superman.html')
 
-@app.route("https://immense-ridge-70695.herokuapp.com/home.html")
+@app.route("/home.html")
 def home():
     return render_template('home.html')
 
-@app.route("https://immense-ridge-70695.herokuapp.com/about.html")
+@app.route("/about.html")
 def about():
     return render_template('about.html')
 
-@app.route("https://immense-ridge-70695.herokuapp.com/recipesideas.html")
+@app.route("/recipesideas.html")
 def recipesideas():
     return render_template('recipesideas.html')
 
-@app.route("https://immense-ridge-70695.herokuapp.com/instagramsuggestions.html")
+@app.route("/instagramsuggestions.html")
 def instagramsuggestions():
     return render_template('instagramsuggestions.html')
 
-@app.route("https://immense-ridge-70695.herokuapp.com/contact.html")
+@app.route("/contact.html")
 def contact():
     return render_template('contact.html')
 
