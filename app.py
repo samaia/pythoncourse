@@ -1,4 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash
+from wtforms import Form, BooleanField, TextField, PasswordField, validators
+
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -30,6 +33,33 @@ def instagramsuggestions():
 def contact():
     return render_template('contact.html')
 
-if __name__ == '__main__':
-    app.run(debug=True)
-  
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+	class RegistrationForm(Form):
+		First_Name= TextField('First Name', [validators.Length(min=1, max=20)])
+		Last_Name= TextField('Last Name', [validators.Length(min=1, max=20)])
+		Username = TextField('Username', [validators.Length(min=4, max=20)])
+    	Email = TextField('Email Address', [validators.Length(min=6, max=50)])
+    	Password = PasswordField('New Password', [validators.Required(),
+        validators.EqualTo('confirm', message='Passwords must match')])
+    	confirm = PasswordField('Repeat Passowrd')
+
+     	accept_tos = BooleanField('I accept the <a href="/tos/"> Terms of Service<a/> and the<a href="/Privacy/"> Privacy Notice<a/> (updated Jan 01, 2018)', [validators.Required()])
+     	return render_template('signup.html')
+
+"""@app.route('/signup3', methods=['GET', 'POST'])
+def signup():
+	try:
+		form = RegistrationForm(request.form)
+		if request.method == "POST" and form.validate():
+            		Username = form.Username.data()
+            		Email = form.Email.data()
+			flash('Thanks for registration ' + First_Name) 
+		else:
+      			flash('Error: All the form fields are required. ')
+		return render_template('signup.html')
+	except:
+		pass
+"""
+if __name__ == '__main__': 
+	app.run(debug=True)
